@@ -1,9 +1,8 @@
-import { authorize } from "@/app/lib/authorization";
 import connectDB from "@/app/lib/mongodb";
 import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-
+import { authorize } from "@/app/lib/authorization";
 export async function GET() {
   try {
     var authorized = await authorize();
