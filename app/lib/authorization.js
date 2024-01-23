@@ -1,9 +1,10 @@
 export async function authorize() {
-const allowedIp = ['49.37.209.163', '192.168.1.39', '192.168.1.35','192.168.0.106','192.168.0.108']; 
+const allowedIp = ['49.37.209', '192.168.1','192.168.0','223.187.115']; 
     var response = await fetch('https://api.ipify.org?format=json');
     var data = await response.json();
-    console.log(data.ip)
-    if(allowedIp.includes(data.ip)){
+    var ip = data.ip.split(".",3).toString().replaceAll(',','.');
+    console.log(ip);
+    if(allowedIp.includes(ip)){
       return true;
     }
     return false;
