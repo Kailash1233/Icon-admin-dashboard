@@ -8,7 +8,6 @@ export default function Home() {
   const [header, setHeader] = useState('Click any of the above buttons');
   const [alldata, setAlldata] = useState(false)
   
-
   const getAll = async () => {
       const access = await fetch("./api/getaccess");
       const accessData = await access.json();
@@ -31,8 +30,9 @@ export default function Home() {
           const res = await fetch("./api/getall");
           response = await res.json();
       }
-
+      
       setDataArray(response);
+
   }
   const getPaperDeFiesta = async () => {
     const access = await fetch("./api/getaccess");
@@ -56,10 +56,6 @@ export default function Home() {
     }
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getpapaerdefiesta");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getDatabaseDetectives = async () => {
     const access = await fetch("./api/getaccess");
@@ -84,10 +80,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getdatabasedetectives");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getAlgorhythm = async () => {
     const access = await fetch("./api/getaccess");
@@ -112,10 +104,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getalgorhythm");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getTechQuest = async () => {
     const access = await fetch("./api/getaccess");
@@ -140,10 +128,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/gettechquest");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getVoxreck = async () => {
     const access = await fetch("./api/getaccess");
@@ -168,10 +152,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getvoxreck");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getIgniteTheSatge = async () => {
     const access = await fetch("./api/getaccess");
@@ -196,10 +176,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getignitethestage");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getAdrenalineRush = async () => {
     const access = await fetch("./api/getaccess");
@@ -224,10 +200,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getadrenalinerush");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const getIplAuction = async () => {
     const access = await fetch("./api/getaccess");
@@ -252,10 +224,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getiplauction");
-    // const response = await res.json();    
-    // setDataArray(response);
   }
   const getWorkshop = async () => {
     const access = await fetch("./api/getaccess");
@@ -280,10 +248,6 @@ export default function Home() {
 
     setDataArray(response);
 
-    // clearDataArray();
-    // const res = await fetch("./api/getall");
-    // const response = await res.json();
-    // setDataArray(response);
   }
   const date = (x) => {
     return new Date(x).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
