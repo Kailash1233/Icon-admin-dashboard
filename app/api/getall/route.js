@@ -6,11 +6,10 @@ import { authorize } from "@/app/lib/authorization";
 export async function GET() {
   try {
     var authorized = await authorize();
-
     if(!authorized){
       return NextResponse.json({
         msg:"You are not authorized to view this data",
-        data: authorized
+        data: []
     });
     }
 
