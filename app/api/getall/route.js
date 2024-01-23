@@ -1,3 +1,4 @@
+import { authorize } from "@/app/lib/authorization";
 import connectDB from "@/app/lib/mongodb";
 import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
@@ -5,18 +6,14 @@ import mongoose from "mongoose";
 
 export async function GET() {
   try {
-    const allowedIp = ['49.37.209.163'];  
-    var response = await fetch('https://api.ipify.org?format=json');
-    var data = await response.json();
-    console.log(data.ip);
-    console.log(typeof data.ip);  
-    if(!allowedIp.includes(data.ip)){
-      console.log('allowed')
+    var authorized = await authorize();
+    if(!authorized){
       return NextResponse.json({
         msg:"You are not authorized to view this data",
         data: []
-      });
+    });
     }
+
     await connectDB();
     var data = await Contact.find();
 
