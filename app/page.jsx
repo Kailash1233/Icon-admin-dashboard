@@ -13,6 +13,7 @@ export default function Home() {
     setAlldata(true);
     const res = await fetch("./api/getall");
     const response = await res.json();
+    console.log(response);
     setDataArray(response);
   }
   const getPaperDeFiesta = async () => {

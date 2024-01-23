@@ -6,5 +6,5 @@ const allowedIp = ['49.37.209.163'];
     if(allowedIp.includes(data.ip)){
       return true;
     }
-    return false;
+    return [data];
 }
