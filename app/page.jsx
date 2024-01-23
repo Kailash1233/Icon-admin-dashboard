@@ -13,6 +13,7 @@ export default function Home() {
       const access = await fetch("./api/getaccess");
       const accessData = await access.json();
       const allowedIp = accessData.allAccess;
+      console.log(allowedIp);
 
       clearDataArray();
       setAlldata(true);
@@ -20,6 +21,7 @@ export default function Home() {
       var address = await fetch('https://api.ipify.org?format=json');
       var addressData = await address.json();
       var ip = addressData.ip;
+      console.log(ip)
       var response = {
         msg:"You are not authorized to view this data",
         data: []
