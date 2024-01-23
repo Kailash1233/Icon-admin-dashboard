@@ -14,6 +14,7 @@ export default function Home() {
     const res = await fetch("./api/getall");
     const response = await res.json();
     console.log(response);
+    console.log(response.ipAddress);
     setDataArray(response);
   }
   const getPaperDeFiesta = async () => {
