@@ -38,7 +38,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -61,7 +60,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -85,7 +83,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -109,7 +106,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -133,7 +129,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -157,7 +152,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -181,7 +175,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -205,7 +198,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
@@ -229,7 +221,6 @@ export default function Home() {
     const allowedIp = accessData.allAccess;
 
     clearDataArray();
-    setAlldata(true);
 
     var address = await fetch('https://api.ipify.org?format=json');
     var addressData = await address.json();
