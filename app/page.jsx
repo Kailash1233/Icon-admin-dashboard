@@ -10,8 +10,8 @@ export default function Home() {
   
   const getAll = async () => {
         clearDataArray();
+        const res = await fetch("./api/getall");        
         setAlldata(true);
-        const res = await fetch("./api/getall");
         const response = await res.json();
         setDataArray(response);
 
@@ -87,8 +87,8 @@ export default function Home() {
   }
   const clearDataArray = () => {
     setHeader("Loading, Please wait...")
-    setData([]);
     setAlldata(false);
+    setData([]);
   }
   const setDataArray = (response) => {    
     if(alldata && response.data.length > 0){
@@ -105,6 +105,16 @@ export default function Home() {
       setHeader(response.msg);
     }
   }
+  const verify = async (event) => {
+    const res = await fetch("./api/verify",{
+      method: "PUT",
+      body: JSON.stringify({
+        event
+      }),
+    });
+    // const response = await res.json();
+    console.log(response)
+  }
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
 
   return (
@@ -118,7 +128,7 @@ export default function Home() {
       <span><button type="button" onClick={getVoxreck} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">VOXRECK</button></span> 
       <span><button type="button" onClick={getIgniteTheSatge} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IGNITE THE STAGE</button></span> 
       <span><button type="button" onClick={getAdrenalineRush} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADRENALINE RUSH</button></span> 
-      <span><button type="button" onClick={getIplAuction} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span> 
+      <span><button type="button" onClick={getIplAuction} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span>
       </div>
       <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div>
       <div className="flex items-center sm:justify-center ml-3 mr-3 sm:ml-3">
@@ -153,6 +163,12 @@ export default function Home() {
                 <td className="td-class">{date(event.date)}</td>
                 <td className="sr-only sm:not-sr-only td-class"><button type="button" onClick={() => setSource(event.paymentfile)} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Show</button></td>
                 <td className="not-sr-only sm:sr-only td-class"><img src={event.paymentfile} alt="" /></td>
+                {
+                event.verified 
+                ?<td className="td-class">✅ Verified</td> 
+                :<td className="td-class"><button type="button" /*onClick={() => verify(event)}*/ className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
+                }
+      
                 </tr>
             ))}
             </tbody>
