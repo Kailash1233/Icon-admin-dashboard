@@ -9,232 +9,73 @@ export default function Home() {
   const [alldata, setAlldata] = useState(false)
   
   const getAll = async () => {
-      const access = await fetch("./api/getaccess");
-      const accessData = await access.json();
-      const allowedIp = accessData.allAccess;
-
-      clearDataArray();
-      setAlldata(true);
-
-      var address = await fetch('https://api.ipify.org?format=json');
-      var addressData = await address.json();
-      var ip = addressData.ip;
-      var response = {
-        msg:"You are not authorized to view this data",
-        data: []
-      };
-
-      if(allowedIp.includes(ip)){
-          const res = await fetch("./api/getall");
-          response = await res.json();
-      }
-      
-      setDataArray(response);
+        clearDataArray();
+        setAlldata(true);
+        const res = await fetch("./api/getall");
+        const response = await res.json();
+        setDataArray(response);
 
   }
   const getPaperDeFiesta = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-      const res = await fetch("./api/getpapaerdefiesta");
-      response = await res.json();
-    }
+    const res = await fetch("./api/getpapaerdefiesta");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getDatabaseDetectives = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getdatabasedetectives");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getdatabasedetectives");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getAlgorhythm = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getalgorhythm");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getalgorhythm");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getTechQuest = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/gettechquest");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/gettechquest");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getVoxreck = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getvoxreck");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getvoxreck");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getIgniteTheSatge = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getignitethestage");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getignitethestage");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getAdrenalineRush = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getadrenalinerush");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getadrenalinerush");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getIplAuction = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getiplauction");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getiplauction");
+    const response = await res.json();
     setDataArray(response);
 
   }
   const getWorkshop = async () => {
-    const access = await fetch("./api/getaccess");
-    const accessData = await access.json();
-    const allowedIp = accessData.allAccess;
-
     clearDataArray();
-
-    var address = await fetch('https://api.ipify.org?format=json');
-    var addressData = await address.json();
-    var ip = addressData.ip;
-    var response = {
-      msg:"You are not authorized to view this data",
-      data: []
-    };
-
-    if(allowedIp.includes(ip)){
-        const res = await fetch("./api/getall");
-        response = await res.json();
-    }
-
+    const res = await fetch("./api/getall");
+    const response = await res.json();
     setDataArray(response);
 
   }
@@ -245,9 +86,9 @@ export default function Home() {
     setSource(null)
   }
   const clearDataArray = () => {
-    setAlldata(false);
     setHeader("Loading, Please wait...")
-    setData([])
+    setData([]);
+    setAlldata(false);
   }
   const setDataArray = (response) => {    
     if(alldata && response.data.length > 0){
