@@ -14,8 +14,7 @@ const contactSchema = new Schema({
 
   email: {
     type: String,
-    required: [true, "Please enter your email."],
-    unique: true,
+    required: [true, "Please enter your email."]
   },
 
   phonenumber: {
@@ -57,6 +56,11 @@ const contactSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  
+  verified: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const Contact = mongoose.models.Contact || mongoose.model("Contact", contactSchema);
