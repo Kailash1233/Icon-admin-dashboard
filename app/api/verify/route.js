@@ -120,7 +120,7 @@ async function sendConfirmationEmail(event) {
     const mailOptions = {
     from: 'your@icon2k24symposium@gmail.com',
     to: event.email,
-    subject: `Confirmation for ICON Registration`,
+    subject: `Confirmation for ${event.eventname} Registration`,
     html: `Hello <b>${event.fullname}</b>,
 
 <p>We extend our gratitude for your enrollment in <span style="font-weight: bold; background-color: yellow;">${event.eventname}</span> scheduled for February 8, 2024.</p>
