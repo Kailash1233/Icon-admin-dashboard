@@ -125,7 +125,7 @@ async function sendConfirmationEmail(event) {
 
 <p>We extend our gratitude for your enrollment in <span style="font-weight: bold; background-color: yellow;">${event.eventname}</span> scheduled for February 8, 2024.</p>
 
-<p>Your participation is confirmed, and we are delighted to inform you that your event ticket details have been provided.</p>
+<p>Your participation is confirmed!</p>
 
 <p>We are committed to delivering an engaging, enlightening, and enjoyable experience during the event. Your attendance adds value to the occasion, and we look forward to a memorable time together.</p>
 
