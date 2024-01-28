@@ -242,7 +242,7 @@ export default function Home() {
                 {
                 event.verified 
                 ?<td className="td-class">✅ Verified</td> 
-                :<td className="td-class"><button type="button" /*onClick={() => verify(event)}*/ className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
+                :<td className="td-class"><button type="button" onClick={() => verify(event)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
                 }
       
                 </tr>
