@@ -14,6 +14,7 @@ export default function Home() {
         setAlldata(true);
         const response = await res.json();
         setDataArray(response);
+        console.log(response)
 
   }
   const getPaperDeFiesta = async () => {
@@ -21,6 +22,7 @@ export default function Home() {
     const res = await fetch("./api/getpapaerdefiesta");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getDatabaseDetectives = async () => {
@@ -28,6 +30,7 @@ export default function Home() {
     const res = await fetch("./api/getdatabasedetectives");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getAlgorhythm = async () => {
@@ -35,6 +38,7 @@ export default function Home() {
     const res = await fetch("./api/getalgorhythm");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getTechQuest = async () => {
@@ -42,6 +46,7 @@ export default function Home() {
     const res = await fetch("./api/gettechquest");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getVoxreck = async () => {
@@ -49,6 +54,7 @@ export default function Home() {
     const res = await fetch("./api/getvoxreck");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getIgniteTheSatge = async () => {
@@ -56,6 +62,7 @@ export default function Home() {
     const res = await fetch("./api/getignitethestage");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getAdrenalineRush = async () => {
@@ -63,6 +70,7 @@ export default function Home() {
     const res = await fetch("./api/getadrenalinerush");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getIplAuction = async () => {
@@ -70,13 +78,15 @@ export default function Home() {
     const res = await fetch("./api/getiplauction");
     const response = await res.json();
     setDataArray(response);
+    console.log(response)
 
   }
   const getWorkshop = async () => {
     clearDataArray();
     const res = await fetch("./api/getall");
     const response = await res.json();
-    setDataArray(response);
+    setDataArray(response);    
+    console.log(response)
 
   }
   const date = (x) => {
@@ -116,7 +126,7 @@ export default function Home() {
       }),
     });
     const response = await res.json();
-    // console.log(response)
+    console.log(response)
   }
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
 
