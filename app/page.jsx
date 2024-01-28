@@ -108,7 +108,7 @@ export default function Home() {
   }
   const verify = async (event) => {
     const res = await fetch("./api/verify",{
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

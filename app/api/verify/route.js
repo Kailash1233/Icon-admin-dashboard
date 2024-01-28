@@ -3,7 +3,7 @@ import connectDB from "@/app/lib/mongodb";
 import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-export async function PUT(req) {
+export async function POST(req) {
   const { event } = await req.json();
   try {
     await connectDB();
