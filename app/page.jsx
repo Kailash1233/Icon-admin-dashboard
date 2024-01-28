@@ -115,7 +115,7 @@ export default function Home() {
         event
       }),
     });
-    // const response = await res.json();
+    const response = await res.json();
     // console.log(response)
   }
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
@@ -133,7 +133,7 @@ export default function Home() {
       <span><button type="button" onClick={getAdrenalineRush} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADRENALINE RUSH</button></span> 
       <span><button type="button" onClick={getIplAuction} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span>
       </div>
-      <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div>
+      <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div> 
       <div className="flex items-center sm:justify-center ml-3 mr-3 sm:ml-3">
           <table className="text-sm border-separate border-spacing-y-1">
             {data && data.length > 0 && <thead class="sr-only text-left font-medium text-lg sm:not-sr-only">
