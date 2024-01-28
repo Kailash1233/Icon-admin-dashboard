@@ -179,6 +179,7 @@ export default function Home() {
     }
   }
   const verify = async (event) => {
+    clearDataArray()
     const res = await fetch("./api/verify",{
       method: "POST",
       headers: {
@@ -190,6 +191,7 @@ export default function Home() {
     });
     const response = await res.json();
     console.log(response)
+    getAll();
   }
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
 
