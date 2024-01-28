@@ -5,9 +5,9 @@ import mongoose from "mongoose";
 export async function POST(req) {
   try {
     await connectDB();
-    console.log('data');
+    
     const data = await Contact.find({eventname: "ALGO-RHYTHM"});
-    console.log(data);
+    
     return NextResponse.json({
       msg: ["Data fetched successfully"],
       success: true,

@@ -22,7 +22,6 @@ export default function Home() {
         setAlldata(true);
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getPaperDeFiesta = async () => {
         clearDataArray();
@@ -37,7 +36,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getDatabaseDetectives = async () => {
         clearDataArray();
@@ -52,7 +50,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getAlgorhythm = async () => {
         clearDataArray();
@@ -67,7 +64,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getTechQuest = async () => {
         clearDataArray();
@@ -82,7 +78,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getVoxreck = async () => {
         clearDataArray();
@@ -97,7 +92,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getIgniteTheSatge = async () => {
         clearDataArray();
@@ -112,7 +106,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getAdrenalineRush = async () => {
         clearDataArray();
@@ -127,7 +120,6 @@ export default function Home() {
         });
         const response = await res.json();
         setDataArray(response);
-        console.log(response)
   }
   const getIplAuction = async () => {
         clearDataArray();
@@ -141,16 +133,14 @@ export default function Home() {
           }),
         });
         const response = await res.json();
-        setDataArray(response);
-        console.log(response)    
+        setDataArray(response);    
 
   }
   const getWorkshop = async () => {
     clearDataArray();
     const res = await fetch("./api/getall", { cache: 'no-store' });
     const response = await res.json();
-    setDataArray(response);    
-    console.log(response)
+    setDataArray(response);  
   }
   const date = (x) => {
     return new Date(x).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
@@ -190,7 +180,6 @@ export default function Home() {
       }),
     });
     const response = await res.json();
-    console.log(response)
     getAll();
   }
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
