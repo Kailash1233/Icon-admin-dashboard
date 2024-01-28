@@ -2,7 +2,7 @@ import connectDB from "@/app/lib/mongodb";
 import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-export async function GET() {
+export async function POST(req) {
   try {
     await connectDB();
     console.log('data');

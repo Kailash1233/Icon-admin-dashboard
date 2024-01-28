@@ -10,7 +10,15 @@ export default function Home() {
   
   const getAll = async () => {
         clearDataArray();
-        const res = await fetch("./api/getall");
+        const res = await fetch("./api/getall",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         setAlldata(true);
         const response = await res.json();
         setDataArray(response);
@@ -18,56 +26,120 @@ export default function Home() {
   }
   const getPaperDeFiesta = async () => {
         clearDataArray();
-        const res = await fetch("./api/getpapaerdefiesta");
+        const res = await fetch("./api/getpapaerdefiesta",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getDatabaseDetectives = async () => {
         clearDataArray();
-        const res = await fetch("./api/getdatabasedetectives");
+        const res = await fetch("./api/getdatabasedetectives",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getAlgorhythm = async () => {
         clearDataArray();
-        const res = await fetch("./api/getalgorhythm", { cache: 'no-store' });
+        const res = await fetch("./api/getalgorhythm",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getTechQuest = async () => {
         clearDataArray();
-        const res = await fetch("./api/gettechquest", { cache: 'no-store' });
+        const res = await fetch("./api/gettechquest",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getVoxreck = async () => {
         clearDataArray();
-        const res = await fetch("./api/getvoxreck", { cache: 'no-store' });
+        const res = await fetch("./api/getvoxreck",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getIgniteTheSatge = async () => {
         clearDataArray();
-        const res = await fetch("./api/getignitethestage", { cache: 'no-store' });
+        const res = await fetch("./api/getignitethestage",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getAdrenalineRush = async () => {
         clearDataArray();
-        const res = await fetch("./api/getadrenalinerush", { cache: 'no-store' });
+        const res = await fetch("./api/getadrenalinerush",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getIplAuction = async () => {
         clearDataArray();
-        const res = await fetch("./api/getiplauction", { cache: 'no-store' });
+        const res = await fetch("./api/getiplauction",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event:'event'
+          }),
+        });
         const response = await res.json();
         setDataArray(response);
         console.log(response)    
