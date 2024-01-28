@@ -10,7 +10,7 @@ export default function Home() {
   
   const getAll = async () => {
         clearDataArray();
-        const res = await fetch("./api/getall");
+        const res = await fetch("./api/getall", { cache: 'no-store' });
         setAlldata(true);
         const response = await res.json();
         setDataArray(response);
@@ -18,56 +18,56 @@ export default function Home() {
   }
   const getPaperDeFiesta = async () => {
         clearDataArray();
-        const res = await fetch("./api/getpapaerdefiesta");
+        const res = await fetch("./api/getpapaerdefiesta", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getDatabaseDetectives = async () => {
         clearDataArray();
-        const res = await fetch("./api/getdatabasedetectives");
+        const res = await fetch("./api/getdatabasedetectives", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getAlgorhythm = async () => {
         clearDataArray();
-        const res = await fetch("./api/getalgorhythm");
+        const res = await fetch("./api/getalgorhythm", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getTechQuest = async () => {
         clearDataArray();
-        const res = await fetch("./api/gettechquest");
+        const res = await fetch("./api/gettechquest", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getVoxreck = async () => {
         clearDataArray();
-        const res = await fetch("./api/getvoxreck");
+        const res = await fetch("./api/getvoxreck", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getIgniteTheSatge = async () => {
         clearDataArray();
-        const res = await fetch("./api/getignitethestage");
+        const res = await fetch("./api/getignitethestage", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getAdrenalineRush = async () => {
         clearDataArray();
-        const res = await fetch("./api/getadrenalinerush");
+        const res = await fetch("./api/getadrenalinerush", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getIplAuction = async () => {
         clearDataArray();
-        const res = await fetch("./api/getiplauction");
+        const res = await fetch("./api/getiplauction", { cache: 'no-store' });
         const response = await res.json();
         setDataArray(response);
         console.log(response)    
@@ -75,7 +75,7 @@ export default function Home() {
   }
   const getWorkshop = async () => {
     clearDataArray();
-    const res = await fetch("./api/getall");
+    const res = await fetch("./api/getall", { cache: 'no-store' });
     const response = await res.json();
     setDataArray(response);    
     console.log(response)
