@@ -9,6 +9,7 @@ export async function PUT(req) {
     await connectDB();
     await Contact.updateOne({ "email" : event.email ,"phonenumber": event.phonenumber, "eventname": event.eventname },
     { $set: { "verified" : true } });
+    console.log('updated');
     await sendConfirmationEmail(event);
 
     return NextResponse.json({
