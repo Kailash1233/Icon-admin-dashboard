@@ -9,113 +9,68 @@ export default function Home() {
   const [alldata, setAlldata] = useState(false)
   
   const getAll = async () => {
-        console.log('response')
         clearDataArray();
-        console.log('response1')
         const res = await fetch("./api/getall");
-        console.log('response2')
         setAlldata(true);
-        console.log('response22')
         const response = await res.json();
-        console.log('response3')
         setDataArray(response);
         console.log(response)
-
   }
   const getPaperDeFiesta = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getpapaerdefiesta");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/getpapaerdefiesta");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getDatabaseDetectives = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getdatabasedetectives");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/getdatabasedetectives");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getAlgorhythm = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getalgorhythm");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/getalgorhythm");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getTechQuest = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/gettechquest");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/gettechquest");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getVoxreck = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getvoxreck");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/getvoxreck");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getIgniteTheSatge = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getignitethestage");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/getignitethestage");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getAdrenalineRush = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getadrenalinerush");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)
-
+        clearDataArray();
+        const res = await fetch("./api/getadrenalinerush");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)
   }
   const getIplAuction = async () => {
-    console.log('response')
-    clearDataArray();
-    console.log('response1')
-    const res = await fetch("./api/getiplauction");
-    console.log('response2')
-    const response = await res.json();
-        console.log('response3')
-    setDataArray(response);
-    console.log(response)    
+        clearDataArray();
+        const res = await fetch("./api/getiplauction");
+        const response = await res.json();
+        setDataArray(response);
+        console.log(response)    
 
   }
   const getWorkshop = async () => {
@@ -124,7 +79,6 @@ export default function Home() {
     const response = await res.json();
     setDataArray(response);    
     console.log(response)
-
   }
   const date = (x) => {
     return new Date(x).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
