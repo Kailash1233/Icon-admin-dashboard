@@ -5,7 +5,9 @@ import mongoose from "mongoose";
 export async function GET() {
   try {
     await connectDB();
+    console.log('data');
     const data = await Contact.find({eventname: "PAPER-DE-FIESTA"});
+    console.log(data);
     return NextResponse.json({
       msg: ["Data fetched successfully"],
       success: true,
