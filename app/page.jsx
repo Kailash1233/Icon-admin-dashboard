@@ -10,7 +10,7 @@ export default function Home() {
   
   const getAll = async () => {
         clearDataArray();
-        const res = await fetch("./api/getall", { cache: 'no-store' });
+        const res = await fetch("./api/getall");
         setAlldata(true);
         const response = await res.json();
         setDataArray(response);
@@ -18,14 +18,14 @@ export default function Home() {
   }
   const getPaperDeFiesta = async () => {
         clearDataArray();
-        const res = await fetch("./api/getpapaerdefiesta", { cache: 'no-store' });
+        const res = await fetch("./api/getpapaerdefiesta");
         const response = await res.json();
         setDataArray(response);
         console.log(response)
   }
   const getDatabaseDetectives = async () => {
         clearDataArray();
-        const res = await fetch("./api/getdatabasedetectives", { cache: 'no-store' });
+        const res = await fetch("./api/getdatabasedetectives");
         const response = await res.json();
         setDataArray(response);
         console.log(response)
