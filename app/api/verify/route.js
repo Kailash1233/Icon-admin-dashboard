@@ -4,12 +4,13 @@ import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 export async function POST(req) {
-  const { event } = await req.json();
+  const { event, verify } = await req.json();
   try {
     await connectDB();
     await Contact.updateOne({ "email" : event.email ,"phonenumber": event.phonenumber, "eventname": event.eventname },
-    { $set: { "verified" : true } });
+    { $set: { "verified" : verify } });
     console.log('updated');
+    if(verify)
     await sendConfirmationEmail(event);
 
     return NextResponse.json({

@@ -3,10 +3,15 @@ import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 export async function POST(req) {
+  const { eventname } = await req.json();
+
   try {
     await connectDB();
-    
-    const data = await Contact.find({eventname: "PAPER-DE-FIESTA"});
+    var data = [];
+    if(eventname == '')
+        data = await Contact.find();
+    else
+        data = await Contact.find({eventname: eventname});
     
     return NextResponse.json({
       msg: ["Data fetched successfully"],

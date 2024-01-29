@@ -8,194 +8,70 @@ export default function Home() {
   const [header, setHeader] = useState('Click any of the above buttons');
   const [alldata, setAlldata] = useState(false)
   
-  const getAll = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getall",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        setAlldata(true);
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getPaperDeFiesta = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getpapaerdefiesta",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getDatabaseDetectives = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getdatabasedetectives",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getAlgorhythm = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getalgorhythm",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getTechQuest = async () => {
-        clearDataArray();
-        const res = await fetch("./api/gettechquest",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getVoxreck = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getvoxreck",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getIgniteTheSatge = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getignitethestage",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getAdrenalineRush = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getadrenalinerush",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);
-  }
-  const getIplAuction = async () => {
-        clearDataArray();
-        const res = await fetch("./api/getiplauction",{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            event:'event'
-          }),
-        });
-        const response = await res.json();
-        setDataArray(response);    
-
-  }
-  const getWorkshop = async () => {
-    clearDataArray();
-    const res = await fetch("./api/getall", { cache: 'no-store' });
+  const getData = async (eventname) => {    
+    setAlldata(false)
+    setHeader("Loading, Please wait...")
+    setData([]);
+    const res = await fetch("./api/getdata",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        eventname: eventname
+      }),
+    });
     const response = await res.json();
-    setDataArray(response);  
-  }
+    if(eventname == '' && response.data.length > 0){
+      setAlldata(true)
+      setData(response.data);
+      setHeader("All Events Total Registration : " + response.data.length);  
+    }else if(eventname != '' && response.data.length > 0){
+      setData(response.data);
+      setHeader(eventname + " Total Registration : " + response.data.length);  
+    }else{
+      setData([])
+      setHeader("NO REGISTRATIONS YET!");
+    }
+
+}
   const date = (x) => {
     return new Date(x).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
   }
   const handleclose = () => {
     setSource(null)
   }
-  const clearDataArray = () => {
+  const verify = async (event, verify) => {
     setHeader("Loading, Please wait...")
-    setAlldata(false);
     setData([]);
-  }
-  const setDataArray = (response) => {    
-    if(alldata && response.data.length > 0){
-      setData(response.data)
-      setHeader("All Events Total Registration : " + response.data.length);
-    }else if(!alldata && response.data.length > 0){
-      setData(response.data);
-      setHeader((response.data[0].eventname + " Total Registration : " + response.data.length));  
-    }else if(response.data.length == 0 && response.msg != "You are not authorized to view this data"){
-      setData([])
-      setHeader("NO REGISTRATIONS YET!");
-    }else if(response.msg == "You are not authorized to view this data"){
-      setData([])
-      setHeader(response.msg);
-    }
-  }
-  const verify = async (event) => {
-    clearDataArray()
     const res = await fetch("./api/verify",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        event
+        event: event,
+        verify: verify
       }),
     });
     const response = await res.json();
-    getAll();
+    getData('');
   }
+
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
 
   return (
       <>
       <div className="border-spacing-y-2 ml-3 mr-3">
-      <span><button type="button" onClick={getAll} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Get All data</button></span> 
-      <span><button type="button" onClick={getPaperDeFiesta} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">PAPER-DE-FIESTA</button></span> 
-      <span><button type="button" onClick={getDatabaseDetectives} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">DATABASE DETECTIVES</button></span> 
-      <span><button type="button" onClick={getAlgorhythm} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ALGO-RHYTHM</button></span> 
-      <span><button type="button" onClick={getTechQuest} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">TECH QUEST</button></span> 
-      <span><button type="button" onClick={getVoxreck} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">VOXRECK</button></span> 
-      <span><button type="button" onClick={getIgniteTheSatge} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IGNITE THE STAGE</button></span> 
-      <span><button type="button" onClick={getAdrenalineRush} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADRENALINE RUSH</button></span> 
-      <span><button type="button" onClick={getIplAuction} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span>
+      <span><button type="button" onClick={() => getData('')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Get All data</button></span> 
+      <span><button type="button" onClick={() => getData('PAPER-DE-FIESTA')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">PAPER-DE-FIESTA</button></span> 
+      <span><button type="button" onClick={() => getData('DATABASE DETECTIVES')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">DATABASE DETECTIVES</button></span> 
+      <span><button type="button" onClick={() => getData('ALGORHYTHM')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ALGO-RHYTHM</button></span> 
+      <span><button type="button" onClick={() => getData('TECH QUEST')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">TECH QUEST</button></span> 
+      <span><button type="button" onClick={() => getData('VOXRECK')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">VOXRECK</button></span> 
+      <span><button type="button" onClick={() => getData('IGNITE THE STAGE')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IGNITE THE STAGE</button></span> 
+      <span><button type="button" onClick={() => getData('ADRENALINE RUSH')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADRENALINE RUSH</button></span> 
+      <span><button type="button" onClick={() => getData('IPL AUCTION')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span>
       </div>
       <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div> 
       <div className="flex items-center sm:justify-center ml-3 mr-3 sm:ml-3">
@@ -233,9 +109,9 @@ export default function Home() {
                 {
                 event.verified 
                 ?<td className="td-class">✅ Verified</td> 
-                :<td className="td-class"><button type="button" onClick={() => verify(event)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
+                :<td className="td-class"><button type="button" onClick={() => verify(event, true)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
                 }
-      
+                {/* <td className="td-class"><button type="button" onClick={() => verify(event, false)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Unverify</button></td> */}
                 </tr>
             ))}
             </tbody>
