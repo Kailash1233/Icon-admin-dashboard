@@ -57,6 +57,21 @@ export default function Home() {
     const response = await res.json();
     getData('');
   }
+  const deleteData = async (event) => {
+    setHeader("Loading, Please wait...")
+    setData([]);
+    const res = await fetch("./api/delete",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        event: event
+      }),
+    });
+    const response = await res.json();
+    getData('');
+  }
 
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];
 
@@ -111,7 +126,8 @@ export default function Home() {
                 ?<td className="td-class">✅ Verified</td> 
                 :<td className="td-class"><button type="button" onClick={() => verify(event, true)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
                 }
-                {/* <td className="td-class"><button type="button" onClick={() => verify(event, false)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Unverify</button></td> */}
+                {/* <td className="td-class"><button type="button" onClick={() => verify(event, false)} className="border-spacing-y-2 text-white bg-yellow-500 hover:bg-yellow-900 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-700 dark:focus:ring-yellow-700 dark:border-yellow-700">Unverify</button></td>
+                <td className="td-class"><button type="button" onClick={() => deleteData(event)} className="border-spacing-y-2 text-white bg-red-500 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-500 dark:hover:bg-red-700 dark:focus:ring-red-700 dark:border-red-700">Delete</button></td> */}
                 </tr>
             ))}
             </tbody>

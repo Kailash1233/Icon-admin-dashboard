@@ -4,22 +4,19 @@ import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 export async function POST(req) {
-  const { event, verify } = await req.json();
+  const { event } = await req.json();
   try {
     await connectDB();
-    await Contact.updateOne({ "_id" : event._id },
-    { $set: { "verified" : verify } });
-    console.log('updated');
-    if(verify)
-    await sendConfirmationEmail(event);
+    await Contact.deleteOne({ "_id" : event._id });
+    console.log('deleted');
 
     return NextResponse.json({
-      msg: ["Verified successfully"],
+      msg: ["Deleted successfully"],
       success: true
     });
   } catch (error) {
       console.log(error);
-      return NextResponse.json({ msg: ["Unable to verify."] });
+      return NextResponse.json({ msg: ["Unable to delete."] });
     }
     
   

@@ -12,7 +12,6 @@ export async function POST(req) {
         data = await Contact.find();
     else
         data = await Contact.find({eventname: eventname});
-    
     return NextResponse.json({
       msg: ["Data fetched successfully"],
       success: true,
