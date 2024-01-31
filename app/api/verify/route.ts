@@ -24,6 +24,9 @@ export async function POST(req) {
     
   
 }
+function getRandomHex() {
+  return Math.floor(Math.random() * 0xFFFFFFFF).toString(16).padStart(8, '0');
+}
 async function sendConfirmationEmail(event) {
   var coordinators = {
     "ADRENALINE RUSH":{
@@ -128,6 +131,10 @@ async function sendConfirmationEmail(event) {
 <p>We extend our gratitude for your enrollment in <span style="font-weight: bold; background-color: yellow;">${event.eventname}</span> scheduled for February 8, 2024.</p>
 
 <p>Your participation is confirmed!</p>
+
+<p>The QR code for the verification process has been attached below</p>
+
+<img src=https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${event._id} alt="qrcode.jpg">
 
 <p>We are committed to delivering an engaging, enlightening, and enjoyable experience during the event. Your attendance adds value to the occasion, and we look forward to a memorable time together.</p>
 

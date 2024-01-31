@@ -79,9 +79,9 @@ export default function Home() {
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];  
   const { data: session } = useSession();
 
-  
-
   if(session && session.user){
+    console.log('session : ' + JSON.stringify(session))
+    console.log('session.user : ' + JSON.stringify(session.user))
       return (
         <>         
         <div className="border-spacing-y-2 ml-3 mr-3">
@@ -135,13 +135,20 @@ export default function Home() {
                   <td className="td-class">{date(event.date)}</td>
                   <td className="sr-only sm:not-sr-only td-class"><button type="button" onClick={() => setSource(event.paymentfile)} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Show</button></td>
                   <td className="not-sr-only sm:sr-only td-class"><img src={event.paymentfile} alt="" /></td>
-                  {
-                  event.verified 
-                  ?<td className="td-class">✅ Verified</td> 
-                  :<td className="td-class"><button type="button" onClick={() => verify(event, true)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>
-                  }
-                  {/* <td className="td-class"><button type="button" onClick={() => verify(event, false)} className="border-spacing-y-2 text-white bg-yellow-500 hover:bg-yellow-900 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-700 dark:focus:ring-yellow-700 dark:border-yellow-700">Unverify</button></td>
-                  <td className="td-class"><button type="button" onClick={() => deleteData(event)} className="border-spacing-y-2 text-white bg-red-500 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-500 dark:hover:bg-red-700 dark:focus:ring-red-700 dark:border-red-700">Delete</button></td> */}
+                  {(() => {
+                    if (session.user.email == 'choumya0703@gmail.com' || session.user.email == 'ibrahimfardeen.n@gmail.com') {
+                        if(event.verified)
+                            return <td className="td-class">✅Verified</td>;
+                        else
+                            return <td className="td-class"><button type="button" onClick={() => verify(event, true)} className="border-spacing-y-2 text-white bg-green-500 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700">Verify</button></td>;
+                    }
+                  })()}
+                  {/* {(session.user.email =='ibrahimfardeen.n@gmail.com') &&
+                    <>
+                      <td className="td-class"><button type="button" onClick={() => deleteData(event)} className="border-spacing-y-2 text-white bg-red-500 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-500 dark:hover:bg-red-700 dark:focus:ring-red-700 dark:border-red-700">Delete</button></td>
+                      {event.verified && <td className="td-class"><button type="button" onClick={() => verify(event, false)} className="border-spacing-y-2 text-white bg-yellow-500 hover:bg-yellow-900 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-700 dark:focus:ring-yellow-700 dark:border-yellow-700">Unverify</button></td>}
+                    </>
+                  } */}
                   </tr>
               ))}
               </tbody>
@@ -153,7 +160,7 @@ export default function Home() {
       </>
     );
   }else{
-    return(
+    return(      
       <div className="flex flex-col items-center justify-center h-screen dark:bg-gray-800">
       <div><p className="text-white">You are not authorized to view this page</p><br/></div>
         <button onClick={() => signIn()} className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
