@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Providers from './components/Providers';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
       <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body classNameName={inter.classNameName}>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
+        
         <Analytics />
         <SpeedInsights />
         </body>
