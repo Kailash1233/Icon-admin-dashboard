@@ -80,8 +80,6 @@ export default function Home() {
   const { data: session } = useSession();
 
   if(session && session.user){
-    console.log('session : ' + JSON.stringify(session))
-    console.log('session.user : ' + JSON.stringify(session.user))
       return (
         <>         
         <div className="border-spacing-y-2 ml-3 mr-3">
