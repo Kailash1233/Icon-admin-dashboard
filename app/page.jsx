@@ -78,32 +78,59 @@ export default function Home() {
 
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];  
   const { data: session } = useSession();
+  const access = {
+    'admin':[
+      'choumya0703@gmail.com',
+      'ibrahimfardeen.n@gmail.com',
+      'abdur.nashith7739@gmail.com',
+      'kailash61203@gmail.com',
+      'prem.v.kumar2002@gmail.com',
+      'salmanfarris2002@gmail.com'
+    ],
+    'IPL AUCTION': 'mohamedafsar2222@gmail.com',
+    'PAPER-DE-FIESTA':'',
+    'TECH QUEST':'',
+    'IGNITE THE STAGE':'',
+    'ADRENALINE RUSH':'',
+    'DATABASE DETECTIVES': '',
+    'ALGO-RHYTHM': '',
+    'VOXRECK':''
+  }
 
   if(session && session.user){
       return (
         <>         
         <div className="border-spacing-y-2 ml-3 mr-3">
         <span>
-            <button onClick={() => signOut()} className="flex items-end gap-2 border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                <img className="w-5 h-5" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo"/>
-                <span>Sign out</span>
+            <button type="button" onClick={() => signOut()} className="text-lg font-bold bg-red-500 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-300 rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-500 dark:hover:bg-red-700 dark:focus:ring-red-700 dark:border-red-700">
+                Sign Out
             </button>
         </span>
+        {(access.admin.includes(session.user.email)) &&
         <span><button type="button" onClick={() => getData('')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Get All data</button></span> 
+        }{(access.admin.includes(session.user.email) || access["PAPER-DE-FIESTA"] == session.user.email ) && 
         <span><button type="button" onClick={() => getData('PAPER-DE-FIESTA')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">PAPER-DE-FIESTA</button></span> 
+        }{(access.admin.includes(session.user.email) || access["DATABASE DETECTIVES"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('DATABASE DETECTIVES')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">DATABASE DETECTIVES</button></span> 
+        }{(access.admin.includes(session.user.email) || access["ALGO-RHYTHM"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('ALGO-RHYTHM')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ALGO-RHYTHM</button></span> 
+        }{(access.admin.includes(session.user.email) || access["TECH QUEST"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('TECH QUEST')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">TECH QUEST</button></span> 
+        }{(access.admin.includes(session.user.email) || access["VOXRECK"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('VOXRECK')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">VOXRECK</button></span> 
+        }{(access.admin.includes(session.user.email) || access["IGNITE THE STAGE"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('IGNITE THE STAGE')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IGNITE THE STAGE</button></span> 
+        }{(access.admin.includes(session.user.email) || access["ADRENALINE RUSH"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('ADRENALINE RUSH')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADRENALINE RUSH</button></span> 
+        }{(access.admin.includes(session.user.email) || access["IPL AUCTION"] == session.user.email) &&
         <span><button type="button" onClick={() => getData('IPL AUCTION')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span>
-        
+        }
         </div>
         <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div> 
         <div className="flex items-center sm:justify-center ml-3 mr-3 sm:ml-3">
             <table className="text-sm border-separate border-spacing-y-1">
-              {data && data.length > 0 && <thead className="sr-only text-left font-medium text-lg sm:not-sr-only">
+              {data && data.length > 0 && 
+              <thead className="sr-only text-left font-medium text-lg sm:not-sr-only">
                 <tr>
                   <th>S.No</th>
                   <th>Name</th>
@@ -119,22 +146,26 @@ export default function Home() {
                 </tr>
               </thead>}
               <tbody>
-              {data && data.map((event, index) => (              
+              {data && data.map((event, index) => (
                 <tr key={index} className="tr-class">
-                  <td className="td-class">{index + 1}</td>
-                  <td className="td-class">{event.fullname}</td>
-                  {(teamEvents.includes(header.split(" Total")[0]) || alldata) && <td className="td-class">{event.teammembers}</td>}
-                  <td className="td-class">{event.email}</td>
-                  <td className="td-class">{event.phonenumber}</td>
-                  <td className="td-class">{event.collegename}</td>
-                  <td className="td-class">{event.department}</td>
-                  <td className="td-class">{event.year}</td>
-                  {alldata && <td className="td-class">{event.eventname}</td>}
-                  <td className="td-class">{date(event.date)}</td>
-                  <td className="sr-only sm:not-sr-only td-class"><button type="button" onClick={() => setSource(event.paymentfile)} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Show</button></td>
-                  <td className="not-sr-only sm:sr-only td-class"><img src={event.paymentfile} alt="" /></td>
+                  {(event.verified || access.admin.includes(session.user.email)) && 
+                    <>
+                      <td className="td-class">{index + 1}</td>
+                      <td className="td-class">{event.fullname}</td>
+                      {(teamEvents.includes(header.split(" Total")[0]) || alldata) && <td className="td-class">{event.teammembers.join(",")}</td>}
+                      <td className="td-class">{event.email}</td>
+                      <td className="td-class">{event.phonenumber}</td>
+                      <td className="td-class">{event.collegename}</td>
+                      <td className="td-class">{event.department}</td>
+                      <td className="td-class">{event.year}</td>
+                      {alldata && <td className="td-class">{event.eventname}</td>}
+                      <td className="td-class">{date(event.date)}</td>
+                      <td className="sr-only sm:not-sr-only td-class"><button type="button" onClick={() => setSource(event.paymentfile)} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Show</button></td>
+                      <td className="not-sr-only sm:sr-only td-class"><img src={event.paymentfile} alt="" /></td>
+                    </>
+                  }
                   {(() => {
-                    if (session.user.email == 'choumya0703@gmail.com' || session.user.email == 'ibrahimfardeen.n@gmail.com') {
+                    if (session.user.email == 'choumya0703@gmail.com') {
                         if(event.verified)
                             return <td className="td-class">✅Verified</td>;
                         else
