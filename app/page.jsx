@@ -152,7 +152,7 @@ export default function Home() {
                     <>
                       <td className="td-class">{index + 1}</td>
                       <td className="td-class">{event.fullname}</td>
-                      {(teamEvents.includes(header.split(" Total")[0]) || alldata) && <td className="td-class">{event.teammembers.join(",")}</td>}
+                      {(teamEvents.includes(header.split(" Total")[0]) || alldata) && <td className="td-class">{event.teammembers.toString().split("\n").join(",")}</td>}
                       <td className="td-class">{event.email}</td>
                       <td className="td-class">{event.phonenumber}</td>
                       <td className="td-class">{event.collegename}</td>
