@@ -127,7 +127,7 @@ export default function Home() {
         }
         </div>
         <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div> 
-        <div className="flex items-center sm:justify-center ml-3 mr-3 sm:ml-3">
+        <div className="flex items-center sm:justify-center ml-3 mr-3 sm:ml-3" >
             <table className="text-sm border-separate border-spacing-y-1">
               {data && data.length > 0 && 
               <thead className="sr-only text-left font-medium text-lg sm:not-sr-only">
@@ -162,6 +162,14 @@ export default function Home() {
                       <td className="td-class">{date(event.date)}</td>
                       <td className="sr-only sm:not-sr-only td-class"><button type="button" onClick={() => setSource(event.paymentfile)} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Show</button></td>
                       <td className="not-sr-only sm:sr-only td-class"><img src={event.paymentfile} alt="" /></td>
+                      {(() => {
+                      if (session.user.email != 'choumya0703@gmail.com') {
+                          if(event.verified)
+                              return <td className="td-class">✅</td>;
+                          else
+                              return <td className="td-class">&#10060;</td>;
+                      }
+                  })()}
                     </>
                   }
                   {(() => {
