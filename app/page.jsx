@@ -89,7 +89,7 @@ export default function Home() {
     ],
     'IPL AUCTION': 'mohamedafsar2222@gmail.com',
     'PAPER-DE-FIESTA':'',
-    'TECH QUEST':'',
+    'TECH QUEST':'Kamalesh.IT.01@gmail.com',
     'IGNITE THE STAGE':'',
     'ADRENALINE RUSH':'',
     'DATABASE DETECTIVES': '',
@@ -107,7 +107,7 @@ export default function Home() {
             </button>
         </span>
         {(access.admin.includes(session.user.email)) &&
-        <span><button type="button" onClick={() => getData('')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Get All data</button></span> 
+        <span><button type="button" onClick={() => getData('')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ALL EVENTS</button></span> 
         }{(access.admin.includes(session.user.email) || access["PAPER-DE-FIESTA"] == session.user.email ) && 
         <span><button type="button" onClick={() => getData('PAPER-DE-FIESTA')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">PAPER-DE-FIESTA</button></span> 
         }{(access.admin.includes(session.user.email) || access["DATABASE DETECTIVES"] == session.user.email ) &&
@@ -124,6 +124,8 @@ export default function Home() {
         <span><button type="button" onClick={() => getData('ADRENALINE RUSH')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADRENALINE RUSH</button></span> 
         }{(access.admin.includes(session.user.email) || access["IPL AUCTION"] == session.user.email) &&
         <span><button type="button" onClick={() => getData('IPL AUCTION')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">IPL AUCTION</button></span>
+        }{(access.admin.includes(session.user.email)) &&
+        <span><button type="button" onClick={() => getData('BOOT TO ROOT')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">BOOT TO ROOT</button></span>
         }
         </div>
         <div className="flex items-center sm:justify-center ml-3 mr-3 border-spacing-y-2 text-2xl font-bold bg-red-800 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-red-500">{header ? header : ""}</div> 
