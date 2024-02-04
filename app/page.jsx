@@ -89,7 +89,7 @@ export default function Home() {
     ],
     'IPL AUCTION': 'mohamedafsar2222@gmail.com',
     'PAPER-DE-FIESTA':'',
-    'TECH QUEST':'Kamalesh.IT.01@gmail.com',
+    'TECH QUEST':'kamalesh.it.01@gmail.com',
     'IGNITE THE STAGE':'',
     'ADRENALINE RUSH':'',
     'DATABASE DETECTIVES': '',
