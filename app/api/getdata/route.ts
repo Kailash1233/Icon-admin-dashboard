@@ -9,7 +9,7 @@ export async function POST(req) {
     await connectDB();
     var data = [];
     if(eventname == '')
-        data = await Contact.find({},{_id:0, paymentfile:0});
+        data = await Contact.find();
     else
         data = await Contact.find({eventname: eventname});
       // console.log(JSON.stringify(data));
