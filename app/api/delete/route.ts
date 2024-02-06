@@ -19,7 +19,6 @@ export async function POST(req) {
       return NextResponse.json({ msg: ["Unable to delete."] });
     }
     
-  
 }
 async function sendConfirmationEmail(event) {
   var coordinators = {

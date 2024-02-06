@@ -24,8 +24,8 @@ export default function Home() {
         eventname: eventname
       }),
     });
-    const response = await res.json();
-    //console.log(JSON.stringify(response.data))
+    const response = await res.json();    
+    // console.log(JSON.stringify(response.data))
     if(eventname == '' && response.data.length > 0){
       setAlldata(true)
       setData(response.data);
@@ -74,7 +74,7 @@ export default function Home() {
       }),
     });
     const response = await res.json();
-    getData('');
+    getData(event.eventname);
   }
 
   const teamEvents = ["PAPER-DE-FIESTA", "TECH QUEST", "IGNITE THE STAGE", "ADRENALINE RUSH", "IPL AUCTION"];  
@@ -93,7 +93,7 @@ export default function Home() {
     'TECH QUEST':'kamalesh.it.01@gmail.com',
     'IGNITE THE STAGE':'',
     'ADRENALINE RUSH':'fahirahumayun22@gmail.com',
-    'DATABASE DETECTIVES': 'farihahibagr@gmail.com',
+    'DATABASE DETECTIVES':'farihahibagr@gmail.com',
     'ALGO-RHYTHM': '',
     'VOXRECK':''
   }
