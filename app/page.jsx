@@ -89,11 +89,11 @@ export default function Home() {
       'salmanfarris2002@gmail.com'
     ],
     'IPL AUCTION': 'mohamedafsar2222@gmail.com',
-    'PAPER-DE-FIESTA':'',
+    'PAPER-DE-FIESTA':'fathimasafura69@gmail.com',
     'TECH QUEST':'kamalesh.it.01@gmail.com',
     'IGNITE THE STAGE':'',
-    'ADRENALINE RUSH':'',
-    'DATABASE DETECTIVES': '',
+    'ADRENALINE RUSH':'fahirahumayun22@gmail.com',
+    'DATABASE DETECTIVES': 'farihahibagr@gmail.com',
     'ALGO-RHYTHM': '',
     'VOXRECK':''
   }
@@ -116,7 +116,7 @@ export default function Home() {
         }{(access.admin.includes(session.user.email) || access["ALGO-RHYTHM"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('ALGO-RHYTHM')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ALGO-RHYTHM</button></span> 
         }{(access.admin.includes(session.user.email) || access["TECH QUEST"] == session.user.email ) &&
-        <span><button type="button" onClick={() => getData('TECH QUEST')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">TECK QUEST</button></span> 
+        <span><button type="button" onClick={() => getData('TECH QUEST')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">TECH QUEST</button></span> 
         }{(access.admin.includes(session.user.email) || access["VOXRECK"] == session.user.email ) &&
         <span><button type="button" onClick={() => getData('VOXRECK')} className="border-spacing-y-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">VOXRECK</button></span> 
         }{(access.admin.includes(session.user.email) || access["IGNITE THE STAGE"] == session.user.email ) &&
