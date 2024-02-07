@@ -9,9 +9,9 @@ export async function POST(req) {
     await connectDB();
     var data = [];
     if(eventname == '')
-        data = await Contact.find({},{paymentfile:0});//{},{paymentfile:0}
+        data = await Contact.find();//{},{paymentfile:0}
     else
-        data = await Contact.find({eventname: eventname},{paymentfile:0});
+        data = await Contact.find({eventname: eventname});
 
     // console.log(JSON.stringify(data));
     return NextResponse.json({
