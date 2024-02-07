@@ -95,18 +95,12 @@ export default function Home() {
       "imrankhan02m@gmail.com",
     ],
     "IPL AUCTION": "mohamedafsar2222@gmail.com",
-    "PAPER-DE-FIESTA": [
-      "fathimasafura69@gmail.com",
-      "imabdulrahman.ms@gmail.com",
-    ],
+    "PAPER-DE-FIESTA": "imabdulrahman.ms@gmail.com",
     "TECH QUEST": "kamalesh.it.01@gmail.com",
     "IGNITE THE STAGE": "",
-    "ADRENALINE RUSH": [
-      "fahirahumayun22@gmail.com",
-      "mohdsuhail3427@gmail.com",
-    ],
-    "DATABASE DETECTIVES": ["farihahibagr@gmail.com", "ummhalith03@gmail.com"],
-    "ALGO-RHYTHM": "",
+    "ADRENALINE RUSH": "fahirahumayun22@gmail.com",
+    "DATABASE DETECTIVES": "farihahibagr@gmail.com",
+    "ALGO-RHYTHM": "ummhalith03@gmail.com",
     VOXRECK: "jeevidarajesh02@gmail.com",
   };
 
