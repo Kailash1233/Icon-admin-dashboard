@@ -25,7 +25,7 @@ export default function Home() {
       }),
     });
     const response = await res.json();    
-    // console.log(JSON.stringify(response.data))
+     console.log(JSON.stringify(response.data))
     if(eventname == '' && response.data.length > 0){
       setAlldata(true)
       setData(response.data);
